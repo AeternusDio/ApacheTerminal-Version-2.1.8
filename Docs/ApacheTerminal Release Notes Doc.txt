@@ -1,0 +1,75 @@
+Apache Terminal Release Notes
+=================================
+
+Version 0.5
+* added main function and worked on a login screen
+* added 3 loading screens 
+
+Version 1.0
+* aded more to the main function
+
+Version 1.4
+* added a calculator function
+* 2 other functions/games
+
+Version 2.0 (big leap)
+* added 3 more functions
+* refined the main function
+* worked on the README.md
+* added the GNU GPL version 3
+
+Version 2.0
+* COMPLETLY refactored the main function
+* added 2 commands (cd, -cd)
+* started working on a moduar system
+
+Version 2.0.1
+* added a README.md
+* added the GNU GPL version 3 
+* added a src directory
+
+Version 2.0.2 
+* added a Functions directory (not much)
+
+Version 2.0.6
+* added more commands
+* added more directory's
+
+Version 2.1.4 (massive leap)
+* added groff documentation for commands
+* refined the Main.c
+* removed the login screen
+* removed the loading screens
+* bug fixes
+
+Version 2.1.5
+* added a file to help with commands
+* added the commands 'atm' manual function
+
+Version 2.1.6
+* added a programs directory
+* added the orginal calculator program back in (only modular this time)
+* bug fixes
+
+Version 2.1.7
+* refined the commands
+* refined the main.c
+* refined the syntax
+* bug fixes
+
+Version 1.2.8
+* added a Test directory
+* added misc Directory
+* added docs directory
+
+
+
+
+
+
+
+
+
+
+
+
