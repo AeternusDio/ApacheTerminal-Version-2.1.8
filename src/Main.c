@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -6,6 +5,8 @@
 #include <string.h>
 #include <dirent.h>
 #include <sys/stat.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #define MAX_FILENAME_LENGTH 100
 #define MAX_CONTENT_LENGTH 1000
@@ -17,10 +18,28 @@ char content[MAX_CONTENT_LENGTH];
 #include "Functions/Programs/Calculator.h"
 #include "Functions/Programs/QuackCodeDebugger.h"
 #include "Functions/Programs/RandomPasswdFunc.h"
+#include "Functions/Programs/TypingGame.h"
+
+void initializeReadline() {
+    
+    using_history();
+    char *histfile = ".shell_history";
+    read_history(histfile);
+    stifle_history(1000); 
+}
+
+void saveCommandToHistory(const char *command) {
+    if (command && *command) {
+        add_history(command);
+        write_history(".shell_history");
+    }
+}
 
 int main(int argc, char* argv[]) {
 
     system("clear");
+
+    initializeReadline();
 
     char path[5000];
     realpath(__FILE__, path);
@@ -35,16 +54,14 @@ int main(int argc, char* argv[]) {
     while (1) {
 
         if (isFirstPrint) {
-            printf("\n/Idk%s\n~>", dir);
+            printf("\n/User%s\n~>", dir);
             isFirstPrint = 0;
         }
 
-        char Commands[1500];
-        fgets(Commands, sizeof(Commands), stdin);
+        char *Commands = readline("");
 
-        size_t len = strlen(Commands);
-        if (len > 0 && Commands[len - 1] == '\n') {
-            Commands[len - 1] = '\0';
+        if (Commands && *Commands) {
+            saveCommandToHistory(Commands);
         }
 
         if (Commands[strlen(Commands) - 1] == '\n') {
@@ -177,8 +194,12 @@ int main(int argc, char* argv[]) {
             QuackCodeDebugger();
             isFirstPrint = 1;
 
-        }
-        else if (strncmp(Commands, "atm cd", 6) == 0) {
+        } else if (strncmp(Commands, "type game", 5) == 0) {
+
+            TypingGame();
+            isFirstPrint = 1;        
+
+        } else if (strncmp(Commands, "atm cd", 6) == 0) {
 
              const char *cdcommand = "man ./Functions/Manuals/CD-Manual.1";
              system(cdcommand);
@@ -240,3 +261,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+

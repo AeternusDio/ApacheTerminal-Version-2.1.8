@@ -61,7 +61,7 @@ Version 1.2.8
 * added a Test directory
 * added misc Directory
 * added docs directory
-
+* added arrow key text manipulation & command history
 
 
 
