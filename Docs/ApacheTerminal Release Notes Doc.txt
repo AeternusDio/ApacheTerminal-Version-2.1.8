@@ -62,6 +62,8 @@ Version 1.2.8
 * added misc Directory
 * added docs directory
 * added arrow key text manipulation & command history
+* added a boot screen thing that only rarly appers
+* updated the command manuals
 
 
 

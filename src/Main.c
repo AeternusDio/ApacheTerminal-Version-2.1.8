@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <time.h>
 
 #define MAX_FILENAME_LENGTH 100
 #define MAX_CONTENT_LENGTH 1000
@@ -19,6 +20,7 @@ char content[MAX_CONTENT_LENGTH];
 #include "Functions/Programs/QuackCodeDebugger.h"
 #include "Functions/Programs/RandomPasswdFunc.h"
 #include "Functions/Programs/TypingGame.h"
+#include "Functions/Other/BootScreen.h"
 
 void initializeReadline() {
     
@@ -37,6 +39,16 @@ void saveCommandToHistory(const char *command) {
 
 int main(int argc, char* argv[]) {
 
+    srand(time(NULL));
+    int randomNumber = rand() % 2 + 1;
+    
+    if(randomNumber == 1) {
+        
+        system("clear");
+        BootScreen();
+
+    }
+
     system("clear");
 
     initializeReadline();
@@ -54,7 +66,7 @@ int main(int argc, char* argv[]) {
     while (1) {
 
         if (isFirstPrint) {
-            printf("\n/User%s\n~>", dir);
+            printf("\n/User%s\n> ", dir);
             isFirstPrint = 0;
         }
 
@@ -101,6 +113,7 @@ int main(int argc, char* argv[]) {
             closedir(directory);
             isFirstPrint = 1;
         } else if (strncmp(Commands, "cd ", 3) == 0) {
+
             char* directory = Commands + 3; 
             char *newline = strchr(directory, '\n');
 
@@ -116,6 +129,7 @@ int main(int argc, char* argv[]) {
             }
 
             isFirstPrint = 1;
+
         } else if (strcmp(Commands, "-cd") == 0) {
             if (chdir("..") != 0) {
                 printf("Failed to go back a directory.\n");
@@ -234,12 +248,6 @@ int main(int argc, char* argv[]) {
             const char *makecommand = "man ./Functions/Manuals/MAKE-Manual.1";
             system(makecommand);
             isFirstPrint = 1;
-
-        } else if (strncmp(Commands, "help", 5) == 0) {
-
-             const char *helpcommand = "man ./../AT-SHELL.1";
-            system(helpcommand);
-            isFirstPrint = 1;     
 
         } else if (strncmp(Commands, "clear", 5) == 0) {
 
