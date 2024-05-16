@@ -270,3 +270,44 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
+/*
+Can't get the stink off
+He's been hanging 'round for days
+Comes like a comet
+Suckered you but not your friends
+One day he'll get to you
+And teach you how to be a holy cow
+
+You do it to yourself, you do
+And that's what really hurts
+Is that you do it to yourself, just you
+You and no one else
+You do it to yourself
+You do it to yourself
+
+Don't get my sympathy
+Hanging out the fifteenth floor
+You've changed the locks three times
+I still come reeling through the door
+One day I'll get to you
+And teach you how to get to purest hell
+
+You do it to yourself you do
+And that's what really hurts
+Is that you do it to yourself, just you
+You and no one else
+You do it to yourself
+You do it to yourself
+
+You do it to yourself you do
+And that's why it really hurts
+Is that you do it to yourself just you
+You and no one else
+You do it to yourself
+You do it to yourself, self
+
+You do it to yourself, you do it to yourself
+Yeah, yeah, you do it to yourself, yes, yes, you
+You do it to yourself
+
+*/
